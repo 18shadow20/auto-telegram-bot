@@ -27,8 +27,8 @@ async def start(message: types.Message):
     """Обработчик команды /start с пагинацией марок"""
     logger.info(f"Пользователь {message.from_user.id} запустил бота")
     try:
-        bot_state.current_mark = ""  # Очищаем текущую марку
-        bot_state.current_models = []  # Очищаем список моделей
+        bot_state.current_mark = ""
+        bot_state.current_models = []
 
         msg = await message.answer("⏳ Загружаем список марок...")
         marks_dict = await parser_auto.pars_marks()
@@ -82,7 +82,7 @@ async def handle_mark(call: types.CallbackQuery):
         mark = call.data[5:].replace('_', ' ')
 
         bot_state.current_mark = mark
-        bot_state.current_models = []  # Очищаем список перед новой загрузкой
+        bot_state.current_models = []
 
 
         while True:

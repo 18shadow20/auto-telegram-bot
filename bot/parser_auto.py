@@ -99,7 +99,7 @@ async def pars_model(mark):
         soup = BeautifulSoup(response.text, "html.parser")
         model_elements = soup.find_all("a", class_="catalog__link")
 
-        parser_state.all_models.clear()  # Очищаем словарь перед новой загрузкой
+        parser_state.all_models.clear()
 
         for element in model_elements:
             title = element.get("title")
